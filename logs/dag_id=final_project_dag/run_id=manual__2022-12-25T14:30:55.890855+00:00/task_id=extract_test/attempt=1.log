@@ -1,0 +1,81 @@
+[2022-12-25T14:31:56.516+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: final_project_dag.extract_test manual__2022-12-25T14:30:55.890855+00:00 [queued]>
+[2022-12-25T14:31:56.662+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: final_project_dag.extract_test manual__2022-12-25T14:30:55.890855+00:00 [queued]>
+[2022-12-25T14:31:56.667+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-25T14:31:56.676+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2022-12-25T14:31:56.678+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-25T14:31:57.273+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): extract_test> on 2022-12-25 14:30:55.890855+00:00
+[2022-12-25T14:31:58.045+0000] {standard_task_runner.py:55} INFO - Started process 15433 to run task
+[2022-12-25T14:31:58.048+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'final_project_dag', 'extract_test', 'manual__2022-12-25T14:30:55.890855+00:00', '--job-id', '240', '--raw', '--subdir', 'DAGS_FOLDER/final_project_dag.py', '--cfg-path', '/tmp/tmp7trii00l']
+[2022-12-25T14:31:58.105+0000] {standard_task_runner.py:83} INFO - Job 240: Subtask extract_test
+[2022-12-25T14:32:19.092+0000] {task_command.py:389} INFO - Running <TaskInstance: final_project_dag.extract_test manual__2022-12-25T14:30:55.890855+00:00 [running]> on host cc86156a81c5
+[2022-12-25T14:32:20.655+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=kelompok2
+AIRFLOW_CTX_DAG_ID=final_project_dag
+AIRFLOW_CTX_TASK_ID=extract_test
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-25T14:30:55.890855+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-12-25T14:30:55.890855+00:00
+[2022-12-25T14:33:39.028+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 175, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/connection.py", line 95, in create_connection
+    raise err
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 187, in _new_conn
+    self, "Failed to establish a new connection: %s" % e
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0xffff868e9910>: Failed to establish a new connection: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 499, in send
+    timeout=timeout,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 788, in urlopen
+    method, url, error=e, _pool=self, _stacktrace=sys.exc_info()[2]
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.twitter.com', port=443): Max retries exceeded with url: /2/tweets/search/stream/rules (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffff868e9910>: Failed to establish a new connection: [Errno 111] Connection refused'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/etl.py", line 42, in hello
+    stream.add_rules(tweepy.StreamRule("Gempa Cianjur"))
+  File "/home/airflow/.local/lib/python3.7/site-packages/tweepy/streaming.py", line 683, in add_rules
+    endpoint_parameters=("dry_run",), json=json, data_type=StreamRule
+  File "/home/airflow/.local/lib/python3.7/site-packages/tweepy/client.py", line 130, in _make_request
+    json=json, user_auth=user_auth)
+  File "/home/airflow/.local/lib/python3.7/site-packages/tweepy/client.py", line 86, in request
+    auth=auth
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/requests/adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.twitter.com', port=443): Max retries exceeded with url: /2/tweets/search/stream/rules (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffff868e9910>: Failed to establish a new connection: [Errno 111] Connection refused'))
+[2022-12-25T14:33:42.047+0000] {taskinstance.py:1327} INFO - Marking task as UP_FOR_RETRY. dag_id=final_project_dag, task_id=extract_test, execution_date=20221225T143055, start_date=20221225T143156, end_date=20221225T143342
+[2022-12-25T14:33:42.583+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 240 for task extract_test (HTTPSConnectionPool(host='api.twitter.com', port=443): Max retries exceeded with url: /2/tweets/search/stream/rules (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0xffff868e9910>: Failed to establish a new connection: [Errno 111] Connection refused')); 15433)
+[2022-12-25T14:33:42.960+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-12-25T14:33:43.277+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

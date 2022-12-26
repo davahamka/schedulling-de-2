@@ -1,0 +1,34 @@
+[2022-12-25T04:25:47.439+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: test_etl_deps.etl_test manual__2022-12-25T04:15:32.832080+00:00 [queued]>
+[2022-12-25T04:25:47.462+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: test_etl_deps.etl_test manual__2022-12-25T04:15:32.832080+00:00 [queued]>
+[2022-12-25T04:25:47.466+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-25T04:25:47.468+0000] {taskinstance.py:1284} INFO - Starting attempt 6 of 6
+[2022-12-25T04:25:47.471+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-25T04:25:47.504+0000] {taskinstance.py:1304} INFO - Executing <Task(BashOperator): etl_test> on 2022-12-25 04:15:32.832080+00:00
+[2022-12-25T04:25:47.520+0000] {standard_task_runner.py:55} INFO - Started process 2000 to run task
+[2022-12-25T04:25:47.534+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'test_etl_deps', 'etl_test', 'manual__2022-12-25T04:15:32.832080+00:00', '--job-id', '126', '--raw', '--subdir', 'DAGS_FOLDER/test_etl_deps.py', '--cfg-path', '/tmp/tmpcea5ea5t']
+[2022-12-25T04:25:47.538+0000] {standard_task_runner.py:83} INFO - Job 126: Subtask etl_test
+[2022-12-25T04:25:47.673+0000] {task_command.py:389} INFO - Running <TaskInstance: test_etl_deps.etl_test manual__2022-12-25T04:15:32.832080+00:00 [running]> on host 176142c05a95
+[2022-12-25T04:25:47.764+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=kelompok2
+AIRFLOW_CTX_DAG_ID=test_etl_deps
+AIRFLOW_CTX_TASK_ID=etl_test
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-25T04:15:32.832080+00:00
+AIRFLOW_CTX_TRY_NUMBER=6
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-12-25T04:15:32.832080+00:00
+[2022-12-25T04:25:47.768+0000] {subprocess.py:63} INFO - Tmp dir root location: 
+ /tmp
+[2022-12-25T04:25:47.771+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'python consumer.py']
+[2022-12-25T04:25:47.789+0000] {subprocess.py:86} INFO - Output:
+[2022-12-25T04:25:47.908+0000] {subprocess.py:93} INFO - python: can't open file 'consumer.py': [Errno 2] No such file or directory
+[2022-12-25T04:25:47.913+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2022-12-25T04:25:47.934+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 197, in execute
+    f"Bash command failed. The command returned a non-zero exit code {result.exit_code}."
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2022-12-25T04:25:47.942+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=test_etl_deps, task_id=etl_test, execution_date=20221225T041532, start_date=20221225T042547, end_date=20221225T042547
+[2022-12-25T04:25:47.965+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 126 for task etl_test (Bash command failed. The command returned a non-zero exit code 2.; 2000)
+[2022-12-25T04:25:47.994+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2022-12-25T04:25:48.027+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

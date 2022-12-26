@@ -1,0 +1,26 @@
+[2022-12-25T16:10:12.361+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: final_project_dag.extract_test manual__2022-12-25T16:10:08.620622+00:00 [queued]>
+[2022-12-25T16:10:12.369+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: final_project_dag.extract_test manual__2022-12-25T16:10:08.620622+00:00 [queued]>
+[2022-12-25T16:10:12.370+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-25T16:10:12.372+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 6
+[2022-12-25T16:10:12.373+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2022-12-25T16:10:12.392+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): extract_test> on 2022-12-25 16:10:08.620622+00:00
+[2022-12-25T16:10:12.400+0000] {standard_task_runner.py:55} INFO - Started process 549 to run task
+[2022-12-25T16:10:12.405+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'final_project_dag', 'extract_test', 'manual__2022-12-25T16:10:08.620622+00:00', '--job-id', '250', '--raw', '--subdir', 'DAGS_FOLDER/final_project_dag.py', '--cfg-path', '/tmp/tmp_cl0eew6']
+[2022-12-25T16:10:12.409+0000] {standard_task_runner.py:83} INFO - Job 250: Subtask extract_test
+[2022-12-25T16:10:12.496+0000] {task_command.py:389} INFO - Running <TaskInstance: final_project_dag.extract_test manual__2022-12-25T16:10:08.620622+00:00 [running]> on host cc86156a81c5
+[2022-12-25T16:10:12.547+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=kelompok2
+AIRFLOW_CTX_DAG_ID=final_project_dag
+AIRFLOW_CTX_TASK_ID=extract_test
+AIRFLOW_CTX_EXECUTION_DATE=2022-12-25T16:10:08.620622+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-12-25T16:10:08.620622+00:00
+[2022-12-25T16:10:13.646+0000] {streaming.py:185} INFO - Stream connected
+[2022-12-25T16:10:34.653+0000] {streaming.py:180} ERROR - Stream connection closed by Twitter
+[2022-12-25T16:10:34.755+0000] {streaming.py:193} INFO - Stream disconnected
+[2022-12-25T16:10:34.789+0000] {python.py:177} INFO - Done. Returned value was: None
+[2022-12-25T16:10:34.891+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=final_project_dag, task_id=extract_test, execution_date=20221225T161008, start_date=20221225T161012, end_date=20221225T161034
+[2022-12-25T16:10:35.139+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2022-12-25T16:10:35.240+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check
