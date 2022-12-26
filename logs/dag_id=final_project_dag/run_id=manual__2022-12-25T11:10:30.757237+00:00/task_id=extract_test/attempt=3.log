@@ -1,2 +1,0 @@
-[2022-12-25T17:11:36.537+0000] {taskinstance.py:1081} INFO - Dependencies not met for <TaskInstance: final_project_dag.extract_test manual__2022-12-25T11:10:30.757237+00:00 [success]>, dependency 'Task Instance State' FAILED: Task is in the 'success' state.
-[2022-12-25T17:11:36.546+0000] {local_task_job.py:98} INFO - Task is not able to be run
